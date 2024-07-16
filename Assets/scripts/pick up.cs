@@ -9,6 +9,7 @@ public class pickup : MonoBehaviour
     private Collider2D possiblePickup;
     private Rigidbody2D rb;
     private bool holding = false;
+    private List<string> tagList = new List<string> { "Pickup", "Hay" };
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +64,7 @@ public class pickup : MonoBehaviour
 
     void PickUp()
     {
-        if (possiblePickup.gameObject.CompareTag("Pickup"))
+        if (possiblePickup.gameObject.CompareTag("Pickup") ||possiblePickup.gameObject.CompareTag("Hay"))
         {
             currentPickup = possiblePickup.gameObject;
             //Debug.Log("Ready to pick up " + other.gameObject.name);

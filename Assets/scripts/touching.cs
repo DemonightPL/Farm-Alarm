@@ -2,14 +2,22 @@ using UnityEngine;
 
 public class HandTriggerCheck : MonoBehaviour
 {
-    public GameObject outlinePrefab;
-    private GameObject outlineObject;
-
+    public Color tintColor = Color.red;
+    public float scaleMultiplier = 1.1f;
+    private SpriteRenderer originalSpriteRenderer;
+    private GameObject  newSpriteObject;
+      void Start()
+    {
+        originalSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    
+   
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Hand"))
         {
-            CreateOutlineObject();
+            CreateOutlineObject(originalSpriteRenderer);
+            
         }
     }
 
@@ -21,22 +29,23 @@ public class HandTriggerCheck : MonoBehaviour
         }
     }
 
-    private void CreateOutlineObject()
+    private void CreateOutlineObject(SpriteRenderer originalSpriteRenderer)
     {
-        if (outlineObject == null)
-        {
-            outlineObject = Instantiate(outlinePrefab, transform.position, Quaternion.identity);
-            outlineObject.transform.SetParent(transform);
-            outlineObject.transform.localPosition = Vector3.zero;
-        }
+         newSpriteObject = new GameObject("ModifiedSprite");
+        SpriteRenderer newSpriteRenderer = newSpriteObject.AddComponent<SpriteRenderer>();
+        newSpriteRenderer.sprite = originalSpriteRenderer.sprite;
+        newSpriteRenderer.color = tintColor;
+
+        newSpriteObject.transform.localScale = originalSpriteRenderer.transform.localScale * scaleMultiplier;
+        newSpriteObject.transform.position = originalSpriteRenderer.transform.position;
+        newSpriteObject.transform.rotation = originalSpriteRenderer.transform.rotation;
+
+        newSpriteObject.transform.SetParent(originalSpriteRenderer.transform);
     }
+    
 
     private void DeleteOutlineObject()
     {
-        if (outlineObject != null)
-        {
-            Destroy(outlineObject);
-            outlineObject = null;
-        }
+        Destroy(newSpriteObject);
     }
 }
