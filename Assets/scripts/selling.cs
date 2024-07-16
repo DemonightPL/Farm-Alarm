@@ -10,7 +10,7 @@ public class selling : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hay"))
         {
-            moneyManager.AddMoney(10);
+            moneyManager.AddMoney(5);
            Destroy(other.gameObject);
            Debug.Log("sell");
         }

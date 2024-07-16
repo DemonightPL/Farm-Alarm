@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Pickup
   - Hand
+  - Hay
+  - Chicken
   layers:
   - Default
   - TransparentFX

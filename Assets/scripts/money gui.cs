@@ -15,6 +15,11 @@ public class MoneyManager : MonoBehaviour
         money += amount;
         UpdateMoneyText();
     }
+    public void DecreaseMoney(int amount)
+    {
+        money -= amount;
+        UpdateMoneyText();
+    }
 
 
     void UpdateMoneyText()
