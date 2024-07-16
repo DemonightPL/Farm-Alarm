@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SlidingBar : MonoBehaviour
+public class fillingbar : MonoBehaviour
 {
     public Transform barTransform;
     public float fillSpeed = 0.1f;
@@ -8,17 +8,20 @@ public class SlidingBar : MonoBehaviour
     private float targetFill = 1f;
     private Vector3 originalScale;
     private Transform targetTransform;
-    public Chicken chicken;
+    
+    public Chicken chickenscript;
 
     void Start()
     {
-        
+        chickenscript = transform.parent.GetComponent<Chicken>();
         originalScale = barTransform.localScale;
         barTransform.localScale = new Vector3(0, originalScale.y, originalScale.z);
     }
 
     void Update()
     {
+        if(chickenscript.food > 0f)
+        {
         Vector3 newScale = barTransform.localScale;
         if (newScale.x < targetFill * originalScale.x)
         {
@@ -28,12 +31,13 @@ public class SlidingBar : MonoBehaviour
         else
         {
             barTransform.localScale = new Vector3(0, originalScale.y, originalScale.z);
-            chicken.eggspawn();
+            chickenscript.eggspawn();
         }
 
         if (targetTransform != null)
         {
             transform.position = targetTransform.position + offset;
+        }
         }
     }
 

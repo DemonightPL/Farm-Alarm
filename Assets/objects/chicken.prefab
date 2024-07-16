@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 7028442819621922884}
   - component: {fileID: 4744835797766554120}
   - component: {fileID: 7064192777852059242}
+  - component: {fileID: 3974242375900249694}
+  - component: {fileID: 6896945792386014440}
+  - component: {fileID: 1955320949701725055}
   m_Layer: 0
   m_Name: chicken
   m_TagString: Chicken
@@ -77,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78616345, g: 0.64876723, b: 0.304082, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,3 +166,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tintColor: {r: 0, g: 0, b: 1, a: 1}
   scaleMultiplier: 1.1
+--- !u!114 &3974242375900249694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831352429568487421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba24c4350a0c48945861a9b112e1d64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slidingBarPrefab: {fileID: 7307315503319185325, guid: 3b9729987dfceec4992e3cdb315f9219, type: 3}
+  targetObject: {fileID: 2979183026449007110}
+--- !u!114 &6896945792386014440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831352429568487421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39bbda59f5dd63444a1cf96b8e0b9068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  egg: {fileID: 4757234866528310659, guid: a08aa6491744dd34db1ae4af351af2e4, type: 3}
+  food: 1
+  foodindicator: {fileID: 145831924868951258, guid: 149e281061340494c89c94da32db8c40, type: 3}
+  ishungry: 0
+--- !u!114 &1955320949701725055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831352429568487421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61a991e96719fd419098f30894ab76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  detectionRadius: 2
+  food: 0

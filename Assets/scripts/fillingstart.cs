@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class TestSlidingBar : MonoBehaviour
+public class fillingstart : MonoBehaviour
 {
-    public SlidingBar slidingBarPrefab;
+    public fillingbar slidingBarPrefab;
     public Transform targetObject;
 
     void Start()
     {
-        SlidingBar slidingBarInstance = Instantiate(slidingBarPrefab, targetObject.position, Quaternion.identity);
+        fillingbar slidingBarInstance = Instantiate(slidingBarPrefab, targetObject.position, Quaternion.identity);
         slidingBarInstance.Initialize(targetObject);
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - Hay
   - Chicken
+  - Egg
   layers:
   - Default
   - TransparentFX

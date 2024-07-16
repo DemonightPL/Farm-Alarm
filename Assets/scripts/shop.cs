@@ -5,6 +5,7 @@ using UnityEngine;
 public class shop : MonoBehaviour
 {
     public GameObject haybox;
+    public GameObject chicken;
     public MoneyManager moneyManager;
     public Vector2 spawnPosition;
     // Start is called before the first frame update
@@ -18,5 +19,9 @@ public class shop : MonoBehaviour
         moneyManager.DecreaseMoney(45);
         Instantiate(haybox, spawnPosition, Quaternion.identity);
     }
-
+    public void buychicken()
+    {
+        moneyManager.DecreaseMoney(100);
+        Instantiate(chicken, spawnPosition, Quaternion.identity);
+    }
 }
