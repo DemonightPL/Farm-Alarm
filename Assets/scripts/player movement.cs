@@ -8,11 +8,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentVelocity;
     private Vector2 inputDirection;
 
-    void Update()
+    void FixedUpdate()
     {
         // Get input
         inputDirection.x = Input.GetAxisRaw("Horizontal");
         inputDirection.y = Input.GetAxisRaw("Vertical");
+
+
+        //sliding logic
         if(inputDirection.x !=0)
         {
            currentVelocity.x = inputDirection.x * moveSpeed;
@@ -32,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             currentVelocity.y -= currentVelocity.y * Time.deltaTime * deceleration;
         }
 
-        //currentVelocity = inputDirection.normalized * moveSpeed;
+        
         // Move the player
         transform.position += (Vector3)currentVelocity * Time.deltaTime;
     }
