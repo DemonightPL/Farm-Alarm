@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class handmovement : MonoBehaviour
+public class HandFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform player; // Reference to the player's transform
+    public float maxDistance = 5f; // Maximum distance the hand can be from the player
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; 
-            transform.position = mousePosition;
+        mousePosition.z = 0f;
+
+        Vector3 direction = mousePosition - player.position;
+        if (direction.magnitude > maxDistance)
+        {
+            direction = direction.normalized * maxDistance;
+        }
+
+        transform.position = player.position + direction;
     }
 }
