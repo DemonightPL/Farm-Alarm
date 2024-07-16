@@ -10,75 +10,62 @@ public class pickup : MonoBehaviour
     private Rigidbody2D rb;
     private bool holding = false;
     private List<string> tagList = new List<string> { "Pickup", "Hay" };
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //picking and droping
-        if (Input.GetKeyDown(KeyCode.E) & isTouchingPickup ||  Input.GetKeyDown(KeyCode.E) & holding)
-        { 
-            if(holding)
+        if (Input.GetKeyDown(KeyCode.E) & isTouchingPickup || Input.GetKeyDown(KeyCode.E) & holding)
+        {
+            if (holding)
             {
                 Drop();
-                
             }
             else
             {
-             
                 PickUp();
             }
-           
         }
-    
-        if(holding)
+
+        if (holding)
         {
             currentPickup.transform.position = transform.position;
-           
-
         }
-    
-
-        
-        
     }
-    
 
-    // knowing if possible to pick
     void OnTriggerStay2D(Collider2D other)
     {
-        isTouchingPickup= true;
+        isTouchingPickup = true;
         possiblePickup = other;
-
     }
+
     void OnTriggerExit2D(Collider2D collider)
     {
-        isTouchingPickup= false;
-
+        isTouchingPickup = false;
     }
-
 
     void PickUp()
     {
-        if (possiblePickup.gameObject.CompareTag("Pickup") ||possiblePickup.gameObject.CompareTag("Hay"))
+        if (IsInTagList(possiblePickup.gameObject))
         {
             currentPickup = possiblePickup.gameObject;
-            //Debug.Log("Ready to pick up " + other.gameObject.name);
-        }
-        holding = true;
+            holding = true;
         currentPickup.GetComponent<Collider2D>().enabled = false;
-
+        }
+        
     }
-    void Drop()
 
+    void Drop()
     {
         currentPickup.GetComponent<Collider2D>().enabled = true;
         holding = false;
-
     }
-        
+
+    bool IsInTagList(GameObject gameObject)
+    {
+        return tagList.Contains(gameObject.tag);
+    }
 }

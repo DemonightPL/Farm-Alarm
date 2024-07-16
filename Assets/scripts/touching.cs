@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class HandTriggerCheck : MonoBehaviour
+public class touching : MonoBehaviour
 {
-    public Color tintColor = Color.red;
+    public Color tintColor = Color.blue;
     public float scaleMultiplier = 1.1f;
     private SpriteRenderer originalSpriteRenderer;
     private GameObject  newSpriteObject;
