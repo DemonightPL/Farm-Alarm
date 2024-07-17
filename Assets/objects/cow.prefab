@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4012500258371529419}
   - component: {fileID: 5784369125115447123}
   - component: {fileID: 4990392349127141047}
+  - component: {fileID: 2920612896011779658}
+  - component: {fileID: 1857911590972082132}
   m_Layer: 0
   m_Name: cow
   m_TagString: Cow
@@ -172,3 +174,44 @@ MonoBehaviour:
   isminigame: 0
   managerobject: {fileID: 0}
   milkgame: {fileID: 4254370137946213821, guid: e642e8d3ea9a9bf4998ac8571903356d, type: 3}
+--- !u!114 &2920612896011779658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610146094838127656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba24c4350a0c48945861a9b112e1d64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slidingBarPrefab: {fileID: 7307315503319185325, guid: 7d664d306ceb5d649970eb3e5a5b6716, type: 3}
+  targetObject: {fileID: 235976789594793823}
+--- !u!50 &1857911590972082132
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610146094838127656}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

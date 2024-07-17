@@ -5,13 +5,13 @@ public class animalwalking : MonoBehaviour
     public float speed = 2f;
     public float detectionRadius = 5f;
     private Vector2 randomDirection;
-    private Transform hayTransform;
+    private Transform foodTransform;
     private float randomSpeed;
     public float food = 1f;
     private Chicken chicken;
     private Cow cow;
     
-    private int animal;
+    private string animal;
 
     void Start()
     {
@@ -19,11 +19,11 @@ public class animalwalking : MonoBehaviour
         if(chicken == null)
         {
             cow = GetComponent<Cow>();
-            animal=1;
+            animal="cow";
         }
         else
         {
-            animal = 0;
+            animal = "chicken";
         }
         
         InvokeRepeating("ChooseRandomDirection", 0f, 2f);
@@ -32,21 +32,21 @@ public class animalwalking : MonoBehaviour
 
     void Update()
     {
-        if(animal ==0)
+        if(animal == "chicken")
         {
             food = chicken.food;
         }
-        else if(animal == 1)
+        else if(animal == "cow")
         {
             food = cow.food;
 
         }
-        DetectHay();
-        if(animal !=1 || !cow.isminigame)
+        DetectFood();
+        if(animal !="cow" || !cow.isminigame)
         {
-             if (hayTransform != null & food < 0.5f)
+             if (foodTransform != null & food < 0.5f)
             {
-             MoveTowardsHay();
+             MoveTowardsFood();
             }
              else
             {
@@ -68,24 +68,29 @@ public class animalwalking : MonoBehaviour
         transform.Translate(randomDirection * speed * Time.deltaTime * randomSpeed);
     }
 
-    void DetectHay()
+    void DetectFood()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-        hayTransform = null;
+        foodTransform = null;
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Hay"))
+            if (collider.CompareTag("Hay") & animal == "cow")
             {
-                hayTransform = collider.transform;
+                foodTransform = collider.transform;
+                break;
+            }
+            else if(collider.CompareTag("Grass") & animal == "chicken")
+            {
+                foodTransform = collider.transform;
                 break;
             }
         }
     }
 
-    void MoveTowardsHay()
+    void MoveTowardsFood()
     {
-        Vector2 direction = (hayTransform.position - transform.position).normalized;
+        Vector2 direction = (foodTransform.position - transform.position).normalized;
         transform.Translate(direction * speed * Time.deltaTime);
     }
 }

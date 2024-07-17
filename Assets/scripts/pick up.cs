@@ -9,7 +9,7 @@ public class pickup : MonoBehaviour
     private Collider2D possiblePickup;
     private Rigidbody2D rb;
     private bool holding = false;
-    private List<string> tagList = new List<string> { "Pickup", "Hay", "Chicken", "Egg", "Cow", "Milk"};
+    private List<string> tagList = new List<string> { "Pickup", "Hay", "Chicken", "Egg", "Cow", "Milk", "Grass"};
     public GameObject managerobject;
     private Manager managerscript;
 

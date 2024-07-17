@@ -18,22 +18,35 @@ public class shop : MonoBehaviour
 
     public void buyhaybox()
     {
-        moneyManager.DecreaseMoney(45);
+        if(moneyManager.money >= 45)
+        {
+            moneyManager.DecreaseMoney(45);
         Instantiate(haybox, spawnPosition, Quaternion.identity);
+        }
+        
     }
     public void buychicken()
     {
+         if(moneyManager.money >= 100)
+        {
         moneyManager.DecreaseMoney(100);
         Instantiate(chicken, spawnPosition, Quaternion.identity);
+        }
     }
     public void buyfence()
     {
+         if(moneyManager.money >= 10)
+        {
         moneyManager.DecreaseMoney(10);
         Instantiate(fence, spawnPosition, Quaternion.identity);
+        }
     }
     public void buycow()
     {
+         if(moneyManager.money >= 300)
+        {
         moneyManager.DecreaseMoney(300);
         Instantiate(cow, spawnPosition, Quaternion.identity);
+        }
     }
 }

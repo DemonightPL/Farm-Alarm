@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7064192777852059242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba24c4350a0c48945861a9b112e1d64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slidingBarPrefab: {fileID: 7307315503319185325, guid: 3b9729987dfceec4992e3cdb315f9219, type: 3}
+  slidingBarPrefab: {fileID: 7307315503319185325, guid: 7d664d306ceb5d649970eb3e5a5b6716, type: 3}
   targetObject: {fileID: 2979183026449007110}
 --- !u!114 &6896945792386014440
 MonoBehaviour:

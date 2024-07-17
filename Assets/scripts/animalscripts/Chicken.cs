@@ -17,7 +17,7 @@ public class Chicken : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Hay") & caneat)
+        if (other.gameObject.CompareTag("Grass") & caneat)
         {
             food=1f;
            Destroy(other.gameObject);

@@ -185,4 +185,5 @@ MonoBehaviour:
   barTransform: {fileID: 6520396049219435348}
   fillSpeed: 0.1
   offset: {x: 0, y: 1.06, z: 0}
-  chickenscript: {fileID: 0}
+  animal: 
+  chickenscript: {fileID: 6896945792386014440, guid: 72b216629166bca4fbb30804ba7db4d1, type: 3}
