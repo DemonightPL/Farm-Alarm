@@ -10,7 +10,7 @@ public class selling : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hay"))
         {
-            moneyManager.AddMoney(5);
+            moneyManager.AddMoney(3);
            Destroy(other.gameObject);
            Debug.Log("sell");
         }
@@ -29,6 +29,12 @@ public class selling : MonoBehaviour
         else if (other.gameObject.CompareTag("Grass"))
         {
             moneyManager.AddMoney(2);
+           Destroy(other.gameObject);
+           Debug.Log("sell");
+        }
+        else if (other.gameObject.CompareTag("Chicken"))
+        {
+            moneyManager.AddMoney(80);
            Destroy(other.gameObject);
            Debug.Log("sell");
         }
