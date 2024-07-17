@@ -15,6 +15,7 @@ TagManager:
   - Chick
   - Seeds
   - Flour
+  - Pancake
   layers:
   - Default
   - TransparentFX

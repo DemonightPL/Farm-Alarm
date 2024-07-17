@@ -5,7 +5,7 @@ using UnityEngine;
 public class mill : MonoBehaviour
 {
     public GameObject Flour;
-    private float ammount = 0f;
+    public float ammount = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +32,16 @@ public class mill : MonoBehaviour
 
     IEnumerator mil()
     {
-        yield return new WaitForSeconds(2f);
+        while (true)
+        {
+        yield return new WaitForSeconds(5f);
+        
         if(ammount > 0)
         {
             ammount -=1;
          Instantiate(Flour, transform.position, transform.rotation);
         }
         
-
+        }
     }
 }

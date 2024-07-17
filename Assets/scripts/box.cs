@@ -8,7 +8,8 @@ public class box : MonoBehaviour
     public GameObject objectToSpawn;
     private float maxSpawnDistance = 2f;
     private float minSpawnDistance = 1f;
-    private int items = 10;
+    public int items = 100;
+    
    
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -28,10 +29,11 @@ public class box : MonoBehaviour
     
     void Update()
     {
+        
          if (Input.GetMouseButtonDown(0) & istouched & items > 0)
         {
              ThrowObject();
-             items-=1;
+             items-=10;
 
         }
         else if(items <= 0)
