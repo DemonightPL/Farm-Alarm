@@ -6,6 +6,7 @@ public class shop : MonoBehaviour
 {
     public GameObject haybox;
     public GameObject chicken;
+    public GameObject fence;
     public MoneyManager moneyManager;
     public Vector2 spawnPosition;
     // Start is called before the first frame update
@@ -23,5 +24,10 @@ public class shop : MonoBehaviour
     {
         moneyManager.DecreaseMoney(100);
         Instantiate(chicken, spawnPosition, Quaternion.identity);
+    }
+    public void buyfence()
+    {
+        moneyManager.DecreaseMoney(10);
+        Instantiate(fence, spawnPosition, Quaternion.identity);
     }
 }

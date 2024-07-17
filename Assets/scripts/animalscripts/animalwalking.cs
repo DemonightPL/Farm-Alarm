@@ -7,12 +7,24 @@ public class animalwalking : MonoBehaviour
     private Vector2 randomDirection;
     private Transform hayTransform;
     private float randomSpeed;
-    public float food;
+    public float food = 1f;
     private Chicken chicken;
+    private Cow cow;
+
+    private int animal;
 
     void Start()
     {
         chicken = GetComponent<Chicken>();
+        if(chicken == null)
+        {
+            cow = GetComponent<Cow>();
+            animal=1;
+        }
+        else
+        {
+            animal = 0;
+        }
         
         InvokeRepeating("ChooseRandomDirection", 0f, 2f);
         
@@ -20,17 +32,28 @@ public class animalwalking : MonoBehaviour
 
     void Update()
     {
-         food = chicken.food;
-        DetectHay();
+        if(animal ==0)
+        {
+            food = chicken.food;
+        }
+        else if(animal == 1)
+        {
+            food = cow.food;
 
-        if (hayTransform != null & food < 0.5f)
-        {
-            MoveTowardsHay();
         }
-        else
+        DetectHay();
+        if(animal !=1 || !cow.isminigame)
         {
-            MoveInRandomDirection();
+             if (hayTransform != null & food < 0.5f)
+            {
+             MoveTowardsHay();
+            }
+             else
+            {
+             MoveInRandomDirection();
+            }
         }
+       
     }
 
     void ChooseRandomDirection()
