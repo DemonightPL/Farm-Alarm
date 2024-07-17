@@ -11,6 +11,7 @@ public class shop : MonoBehaviour
     public MoneyManager moneyManager;
     public Vector2 spawnPosition;
     public GameObject seeds;
+    public GameObject sheep;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,14 @@ public class shop : MonoBehaviour
         {
         moneyManager.DecreaseMoney(10);
         Instantiate(seeds, spawnPosition, Quaternion.identity);
+        }
+    }
+    public void buysheep()
+    {
+         if(moneyManager.money >= 1000)
+        {
+        moneyManager.DecreaseMoney(1000);
+        Instantiate(sheep, spawnPosition, Quaternion.identity);
         }
     }
 }

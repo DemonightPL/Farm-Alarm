@@ -16,6 +16,8 @@ TagManager:
   - Seeds
   - Flour
   - Pancake
+  - Sheep
+  - Wool
   layers:
   - Default
   - TransparentFX

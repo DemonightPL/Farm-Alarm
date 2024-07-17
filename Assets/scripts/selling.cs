@@ -50,5 +50,11 @@ public class selling : MonoBehaviour
            Destroy(other.gameObject);
            
         }
+         else if (other.gameObject.CompareTag("Wool"))
+        {
+            moneyManager.AddMoney(100);
+           Destroy(other.gameObject);
+           
+        }
     }
 }

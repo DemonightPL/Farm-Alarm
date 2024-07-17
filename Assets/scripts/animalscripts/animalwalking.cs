@@ -11,7 +11,7 @@ public class animalwalking : MonoBehaviour
     private Chicken chicken;
     private Chick chick;
     private Cow cow;
-    
+    private Sheep sheep;
     public string animal;
 
     void Start()
@@ -19,6 +19,7 @@ public class animalwalking : MonoBehaviour
         chicken = GetComponent<Chicken>();
         cow = GetComponent<Cow>();
          chick = GetComponent<Chick>();
+         sheep = GetComponent<Sheep>();
         if(cow != null)
         {
             
@@ -32,6 +33,10 @@ public class animalwalking : MonoBehaviour
         else if(chick != null)
         {
             animal = "chick";
+        }
+        else if(sheep != null)
+        {
+            animal = "sheep";
         }
         
         InvokeRepeating("ChooseRandomDirection", 0f, 2f);
@@ -52,6 +57,10 @@ public class animalwalking : MonoBehaviour
         else if (animal == "chick")
         {
             food = chick.food;
+        }
+        else if (animal == "sheep")
+        {
+            food = sheep.food;
         }
         DetectFood();
         if(animal !="cow" || !cow.isminigame)
@@ -87,7 +96,7 @@ public class animalwalking : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Hay") & animal == "cow")
+            if (collider.CompareTag("Hay") & animal == "cow" || collider.CompareTag("Hay") & animal == "sheep")
             {
                 foodTransform = collider.transform;
                 break;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4630258824948588534}
   - component: {fileID: 3750300167584102428}
   - component: {fileID: 2783420245025573114}
+  - component: {fileID: -3974571618950393178}
   m_Layer: 0
   m_Name: Seeds
   m_TagString: Seeds
@@ -161,3 +162,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-3974571618950393178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428663489201690511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3802ba193a0b3b845becc3847ba7b9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tintColor: {r: 0, g: 0, b: 1, a: 1}
+  scaleMultiplier: 1.1

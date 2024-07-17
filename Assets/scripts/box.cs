@@ -8,9 +8,14 @@ public class box : MonoBehaviour
     public GameObject objectToSpawn;
     private float maxSpawnDistance = 2f;
     private float minSpawnDistance = 1f;
-    public int items = 100;
+    private float items = 10;
+    public float fill;
+    private ammountshower childScript;
     
-   
+   private void Start()
+   {
+    childScript = GetComponentInChildren<ammountshower>();
+   }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Hand"))
@@ -29,11 +34,12 @@ public class box : MonoBehaviour
     
     void Update()
     {
-        
+        fill = items /10;
+        childScript.fillAmount = fill;
          if (Input.GetMouseButtonDown(0) & istouched & items > 0)
         {
              ThrowObject();
-             items-=10;
+             items-=1;
 
         }
         else if(items <= 0)
