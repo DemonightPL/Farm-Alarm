@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6808335798820164178}
   - component: {fileID: 7307315503319185325}
   m_Layer: 0
-  m_Name: bar
+  m_Name: bar-cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,6 +10,7 @@ TagManager:
   - Chicken
   - Egg
   - Cow
+  - Milk
   layers:
   - Default
   - TransparentFX

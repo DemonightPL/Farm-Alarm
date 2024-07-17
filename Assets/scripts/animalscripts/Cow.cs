@@ -47,7 +47,7 @@ public class Cow : MonoBehaviour
     {
         if (food > 0f)
         {
-            food -= 0.1f * Time.deltaTime;
+            food -= 0.01f * Time.deltaTime;
         }
         if (food < 0.5f)
         {
@@ -73,9 +73,10 @@ public class Cow : MonoBehaviour
       
 
        
-        if (Input.GetMouseButtonDown(0) && istouched && !managerscript.canvasactive )
+        if (Input.GetMouseButtonDown(0) && istouched && !managerscript.canvasactive && food > 0.1f)
         {
             newminigame = Instantiate(milkgame, new Vector3(0, 0, 0), transform.rotation);
+            newminigame.transform.parent = transform;
             isminigame = true;
             managerscript.canvasactive =  true;
             exit = GameObject.Find("x").GetComponent<Button>();
