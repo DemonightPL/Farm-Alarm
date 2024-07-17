@@ -12,6 +12,7 @@ TagManager:
   - Cow
   - Milk
   - Grass
+  - Chick
   layers:
   - Default
   - TransparentFX

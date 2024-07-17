@@ -9,21 +9,29 @@ public class animalwalking : MonoBehaviour
     private float randomSpeed;
     public float food = 1f;
     private Chicken chicken;
+    private Chick chick;
     private Cow cow;
     
-    private string animal;
+    public string animal;
 
     void Start()
     {
         chicken = GetComponent<Chicken>();
-        if(chicken == null)
+        cow = GetComponent<Cow>();
+         chick = GetComponent<Chick>();
+        if(cow != null)
         {
-            cow = GetComponent<Cow>();
+            
             animal="cow";
         }
-        else
+        else if(chicken != null)
         {
             animal = "chicken";
+           
+        }
+        else if(chick != null)
+        {
+            animal = "chick";
         }
         
         InvokeRepeating("ChooseRandomDirection", 0f, 2f);
@@ -32,7 +40,7 @@ public class animalwalking : MonoBehaviour
 
     void Update()
     {
-        if(animal == "chicken")
+        if(animal == "chicken" )
         {
             food = chicken.food;
         }
@@ -40,6 +48,10 @@ public class animalwalking : MonoBehaviour
         {
             food = cow.food;
 
+        }
+        else if (animal == "chick")
+        {
+            food = chick.food;
         }
         DetectFood();
         if(animal !="cow" || !cow.isminigame)
@@ -80,7 +92,7 @@ public class animalwalking : MonoBehaviour
                 foodTransform = collider.transform;
                 break;
             }
-            else if(collider.CompareTag("Grass") & animal == "chicken")
+            else if(collider.CompareTag("Grass") & animal == "chicken" || collider.CompareTag("Grass") & animal == "chick")
             {
                 foodTransform = collider.transform;
                 break;

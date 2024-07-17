@@ -26,5 +26,11 @@ public class selling : MonoBehaviour
            Destroy(other.gameObject);
            Debug.Log("sell");
         }
+        else if (other.gameObject.CompareTag("Grass"))
+        {
+            moneyManager.AddMoney(2);
+           Destroy(other.gameObject);
+           Debug.Log("sell");
+        }
     }
 }
