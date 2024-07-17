@@ -10,6 +10,8 @@ public class pickup : MonoBehaviour
     private Rigidbody2D rb;
     private bool holding = false;
     private List<string> tagList = new List<string> { "Pickup", "Hay", "Chicken", "Egg", "Cow"};
+    public GameObject managerobject;
+    private Manager managerscript;
 
     void Start()
     {
@@ -18,7 +20,18 @@ public class pickup : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) & isTouchingPickup || Input.GetKeyDown(KeyCode.E) & holding)
+
+        if (managerscript == null)
+        {
+            managerobject = GameObject.Find("manager");
+            if (managerobject != null)
+            {
+                managerscript = managerobject.GetComponent<Manager>();
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) & isTouchingPickup  & !managerscript.canvasactive || Input.GetKeyDown(KeyCode.E) & holding & !managerscript.canvasactive)
         {
             if (holding)
             {

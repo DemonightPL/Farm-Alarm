@@ -10,7 +10,7 @@ public class animalwalking : MonoBehaviour
     public float food = 1f;
     private Chicken chicken;
     private Cow cow;
-
+    
     private int animal;
 
     void Start()

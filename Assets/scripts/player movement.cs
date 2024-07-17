@@ -7,7 +7,21 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 currentVelocity;
     private Vector2 inputDirection;
+    public GameObject managerobject;
+    private Manager managerscript;
 
+void Update()
+    {
+        if (managerscript == null)
+        {
+            managerobject = GameObject.Find("manager");
+            if (managerobject != null)
+            {
+                managerscript = managerobject.GetComponent<Manager>();
+            }
+
+        }
+    }
     void FixedUpdate()
     {
         // Get input
@@ -36,7 +50,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
-        // Move the player
-        transform.position += (Vector3)currentVelocity * Time.deltaTime;
+        if(!managerscript.canvasactive)
+        {
+            transform.position += (Vector3)currentVelocity * Time.deltaTime;
+        }
+        
     }
+    
 }

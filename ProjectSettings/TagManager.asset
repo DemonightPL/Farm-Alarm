@@ -9,6 +9,7 @@ TagManager:
   - Hay
   - Chicken
   - Egg
+  - Cow
   layers:
   - Default
   - TransparentFX
